@@ -1,16 +1,17 @@
 
 import pandas as pd
 import plotly.express as px
-
+import os
 from dash import Dash, dcc, html, Input, Output, dash_table
 
 # Preparing your data for usage *******************************************
+print(os.getcwd())
 
-df = pd.read_excel(r"C:\Users\shawn\Python\dash\dashenv\my-first-app\assets\Pitcher Season Stats.xlsx", usecols=["Name", "W", "L", "ERA", "IP", "SO", "WHIP", "GS"])
+df = pd.read_excel(r".\assets\Pitcher Season Stats.xlsx", usecols=["Name", "W", "L", "ERA", "IP", "SO", "WHIP", "GS"])
 df['K/IP'] = df["SO"]/df["IP"]
 df['K/IP'] = df['K/IP'].round(2)
 df['WHIP'] = df['WHIP'].round(2)
-
+print(df.head())
 dfGameLogs = pd.read_excel(r"C:\Users\shawn\Python\dash\dashenv\my-first-app\assets\2024 Pitching Logs.xlsx", usecols=["Name", "Date", "Opp", "W", "L", "IP", "BF", "H", "R", "ER", "HR", "BB", "SO","Pit"])
 dfGameLogs['Date'] = pd.to_datetime(dfGameLogs['Date'], format="%Y-%m-%d").dt.date
 
