@@ -6,7 +6,7 @@ from dash import Dash, dcc, html, Input, Output, dash_table
 
 # Preparing your data for usage *******************************************
 
-df = pd.read_excel(r"C:\Users\shawn\Python\Baseball\Season Statistics\Pitcher Season Stats.xlsx", usecols=["Name", "W", "L", "ERA", "IP", "SO", "WHIP", "GS"])
+df = pd.read_excel(r"C:\Users\shawn\Python\dash\dashenv\my-first-app\assets\Pitcher Season Stats.xlsx", usecols=["Name", "W", "L", "ERA", "IP", "SO", "WHIP", "GS"])
 df['K/IP'] = df["SO"]/df["IP"]
 df['K/IP'] = df['K/IP'].round(2)
 df['WHIP'] = df['WHIP'].round(2)
